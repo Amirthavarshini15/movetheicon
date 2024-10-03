@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    *{
+        margin: 0;
+    }
+    #move{
+        background-color: hsl(350, 100%, 88%);
+        height: 150px;
+        width: 150px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 20px;
+        font-weight: bold;
+        position: relative;
+        box-shadow:5px  5px hsl(350, 100%, 82%);
+
+    }
+</style>
+<body>
+    <div id="move">
+        MOVE 😁
+    </div>
+
+<script>
+    const move=document.getElementById("move");
+    y=0;
+    x=0;
+    const m=10;
+    document.addEventListener("keydown",event=>{
+       if(event.key.startsWith("Arrow"))
+       {
+        event.preventDefault();
+        switch (event.key) {
+            case "ArrowUp":
+                y-=m;
+                break;
+            case "ArrowDown":
+                y+=m;
+                break;
+            case "ArrowRight":
+                x+=m;
+                break;
+            case "ArrowLeft":
+                x-=m;
+                break;
+            
+        }
+
+        move.style.top=`${y}px`;
+        move.style.left=`${x}px`;
+       }
+    })
+   
+</script>
+</body>
+</html>
